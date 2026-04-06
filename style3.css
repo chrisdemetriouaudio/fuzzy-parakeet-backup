@@ -7491,3 +7491,243 @@ width:100%;
     .reel-tv-knob { width: 8px; height: 8px; }
 }
 .nav-item:hover::after { width: 100%; }
+
+
+/* ============================================================
+   RESTRUCTURE — NEW ELEMENTS (April 2026)
+   ============================================================ */
+
+/* ── Desktop nav links (right side) ── */
+.nav-links-desktop {
+  position: fixed;
+  top: 0;
+  right: 80px;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  z-index: 100;
+}
+.nav-links-desktop .nav-link {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-white);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links-desktop .nav-link:hover,
+.nav-links-desktop .nav-link.active {
+  color: var(--accent);
+}
+@media (max-width: 768px) {
+  .nav-links-desktop { display: none; }
+}
+
+/* ── Hero: full-bleed override for homepage ── */
+.hero--home {
+  position: relative;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('images/sharoncorr.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  z-index: 0;
+}
+/* Override tiled ::before on homepage hero */
+.hero--home .hero-image::before {
+  display: none;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.70);
+  z-index: 3;
+  pointer-events: none;
+}
+.hero--home .hero-content {
+  z-index: 4;
+}
+
+/* ── Hero: simple typographic (work / about pages) ── */
+.hero--simple {
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 0 60px;
+  aspect-ratio: unset;
+  max-height: none;
+  margin-bottom: 0;
+  background: var(--bg-black);
+}
+.hero--simple .hero-content {
+  margin-top: 0;
+  padding: var(--space-xl);
+}
+.hero-sub {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-grey);
+  margin: 0.5rem 0 1.5rem;
+}
+
+/* ── Labels ── */
+.showreel-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  opacity: 0.6;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-family: var(--font-mono);
+  color: var(--text-white);
+  display: block;
+}
+.section-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-bottom: 2rem;
+  font-family: var(--font-mono);
+  color: var(--text-white);
+  display: block;
+  text-align: center;
+}
+
+/* ── TV inline: reel on work page ── */
+.reel-tv-inline-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-xl) var(--space-md);
+  text-align: center;
+}
+.reel-tv-inline-wrap .section-label,
+.reel-tv-inline-wrap p {
+  text-align: center;
+}
+/* Override overlay behaviour — show TV inline */
+.reel-modal-overlay.reel-modal--inline {
+  position: relative !important;
+  inset: auto !important;
+  background: transparent !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  display: flex !important;
+  justify-content: center;
+  z-index: auto !important;
+  padding: 0 !important;
+}
+
+/* ── Contact form (new section) ── */
+.contact-form-section {
+  padding: var(--space-2xl) 0;
+}
+.contact-form-section .section-title {
+  margin-bottom: 0.5rem;
+}
+.contact-form-sub {
+  color: var(--text-grey);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  margin-bottom: var(--space-lg);
+}
+.contact-form {
+  max-width: 600px;
+}
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.2rem;
+}
+.form-field label {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  font-family: var(--font-mono);
+}
+.form-field input,
+.form-field select,
+.form-field textarea {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: white;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border-radius: 2px;
+  font-family: var(--font-main);
+  width: 100%;
+  box-sizing: border-box;
+}
+.form-field select option {
+  background: var(--bg-dark);
+  color: white;
+}
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: #eeff00;
+}
+.btn-full {
+  width: 100%;
+}
+.contact-secondary {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  opacity: 0.5;
+  font-size: 0.85rem;
+  flex-wrap: wrap;
+}
+.contact-secondary a {
+  color: var(--text-white);
+  text-decoration: none;
+}
+.contact-secondary a:hover {
+  opacity: 0.8;
+}
+#form-success {
+  display: none;
+}
+#form-success p {
+  text-align: center;
+  padding: 2rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  letter-spacing: 0.05em;
+}
+
+/* ── About page photo ── */
+.about-photo {
+  width: 100%;
+  max-width: 400px;
+  display: block;
+}
+.photo-caption {
+  font-size: 0.75rem;
+  opacity: 0.5;
+  margin-top: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+/* ── Step 7: Remove accent from decorative dividers/borders ── */
+.section-divider,
+.section-divider-accent,
+[class*="divider--accent"],
+[class*="border--accent"] {
+  border-color: var(--border) !important;
+  background-color: var(--border) !important;
+}
+/* Footer radial accent glow — soften to near-invisible */
+.footer {
+  background-image: none !important;
+}
