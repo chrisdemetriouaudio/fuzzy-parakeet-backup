@@ -52,7 +52,817 @@
 
 <main>
 
-  <!-- Page content goes here -->
+<!-- ░░ 1. TYPOGRAPHIC HERO ░░ -->
+<section class="hero hero--simple" id="showreel">
+  <div class="hero-content">
+    <h1>Work</h1>
+    <p class="hero-sub">Radio imaging · Podcast production · Sound design</p>
+    <a href="index.html#contact" class="btn btn-primary">Send a project brief</a>
+  </div>
+</section>
+
+<!-- ░░ 2. SHOWREEL — TV inline ░░ -->
+<section class="section-pad reel-section">
+  <div class="container container--narrow">
+    <h2 class="section-label">Showreel</h2>
+    <p class="reel-section-sub">Narrative · Imaging · Podcast</p>
+    <div class="reel-tv-wrap">
+      <div class="reel-tv">
+        <div class="reel-tv-header">
+          <span class="reel-tv-brand">ChrisD — Showreel 2026</span>
+        </div>
+        <div class="reel-tv-bezel">
+          <div class="reel-tv-screen">
+            <video id="reel-video" src="video/chrisdemetriou_musicREEL_FINAL2026.mp4" controls playsinline preload="none" controlsList="nodownload"></video>
+            <button class="reel-play-btn" id="reel-play-btn" aria-label="Play video">
+              <div class="reel-play-content">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                <span class="reel-play-text">WATCH CHRIS'S SHOWREEL</span>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="reel-tv-footer">
+          <div class="reel-tv-grille">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="reel-tv-knobs">
+            <div class="reel-tv-knob"></div>
+            <div class="reel-tv-knob"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ 3. AUDIO SHOWREEL — cdplayer ░░ -->
+         <section id="soundcloud-section" class="section-pad scroll-target">
+            <div class="container">
+               <h2 class="section-title">Audio Showreel</h2>
+
+         <div class="showreel-note">
+<p>
+This showreel demonstrates narrative sound design, podcast production and broadcast imaging created independently.
+</p>
+
+<p>
+Where voice talent was not available, voice models were directed to realise scripts and explore pacing, dialogue flow and scene building.
+</p>
+
+<p>
+The focus throughout is storytelling through sound, shaping atmosphere, character and structure.
+</p>
+
+<p style="font-weight: 700; text-transform: uppercase; font-size: 0.9em; margin-top: 1.5rem;">
+PITCHES USING BRANDED CONTENT ARE SENT VIA A PRIVATE SOUNDCLOUD
+</p>
+
+</div>
+
+               <p class="showreel-label">AUDIO SHOWREEL</p>
+
+               <!-- Custom SoundCloud Player -->
+               <div class="cdplayer" id="cdplayer">
+
+                  <!-- Hidden wrapper — iframe must render for Widget API to work; display:none breaks SC Widget API -->
+                  <div id="sc-iframe-wrap" style="position:absolute;left:-9999px;top:0;width:300px;height:166px;opacity:0;pointer-events:none;">
+
+                     <iframe id="sc-widget" width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/2112905759&color=%23eeff00&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false">
+                     </iframe>
+                  </div>
+
+                  <!-- Now Playing header -->
+                  <div class="cdp-stage">
+                     <div class="cdp-artwork" id="cdp-artwork">
+                        <img id="cdp-artwork-img" src="" alt="" style="position:absolute;inset:12px;width:calc(100% - 24px);height:calc(100% - 24px);object-fit:cover;border-radius:8px;display:none;z-index:1;">
+                        <div class="cdp-artwork-inner" style="position:relative;z-index:2;">
+                           <div class="cdp-eq" id="cdp-eq">
+                              <span></span><span></span><span></span><span></span><span></span>
+                              <span></span><span></span><span></span><span></span><span></span>
+                              <span></span><span></span><span></span><span></span><span></span>
+                              <span></span><span></span><span></span><span></span><span></span>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="cdp-meta">
+                        <div class="cdp-label">NOW PLAYING</div>
+                        <div class="cdp-title" id="cdp-title">Select a track to begin</div>
+                        <div class="cdp-artist">Chris Demetriou</div>
+                        <div class="cdp-track-count" id="cdp-track-count"></div>
+                     </div>
+                  </div>
+
+                  <!-- Waveform (replaces progress bar) -->
+                  <div class="cdp-waveform-wrap" id="cdp-waveform-wrap">
+                     <canvas id="cdp-waveform"></canvas>
+                     <div class="cdp-waveform-time">
+                        <span id="cdp-current">0:00</span>
+                        <span class="cdp-time-sep"> / </span>
+                        <span id="cdp-duration">0:00</span>
+                     </div>
+                  </div>
+
+                  <!-- Controls -->
+                  <div class="cdp-controls">
+
+                     <button class="cdp-btn cdp-btn--sm" id="cdp-prev" aria-label="Previous">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+                     </button>
+
+                     <button class="cdp-btn cdp-btn--lg" id="cdp-play" aria-label="Play/Pause">
+                        <svg class="cdp-icon-play" viewBox="0 0 24 24" fill="currentColor">
+                           <path d="M8 5v14l11-7z"/>
+                        </svg>
+
+                        <svg class="cdp-icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none">
+                           <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                        </svg>
+                     </button>
+
+                     <button class="cdp-btn cdp-btn--sm" id="cdp-next" aria-label="Next">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                           <path d="M6 18l8.5-6L6 6v12zm2.5-6l5.5 3.91V8.09L8.5 12zM16 6h2v12h-2z"/>
+                        </svg>
+                     </button>
+
+                     <input
+                        type="range"
+                        id="cdp-volume"
+                        min="0"
+                        max="100"
+                        step="1"
+                        value="100"
+                     >
+
+                  </div>
+                      <div class="cdp-tabs" id="cdp-tabs">
+                        <div class="cdp-tab active" data-tab="all">All</div>
+                        <div class="cdp-tab" data-tab="drama">Drama</div>
+                        <div class="cdp-tab" data-tab="podcast">Podcast</div>
+                        <div class="cdp-tab" data-tab="commercial">Commercial</div>
+                        <div class="cdp-tab" data-tab="imaging">Radio Imaging</div>
+                        <div class="cdp-tab" data-tab="voice">Voice & Links</div>
+                        <div class="cdp-tab-indicator" id="cdp-tab-indicator"></div>
+                      </div>
+                  <!-- Tracklist -->
+                  <div class="cdp-tracklist" id="cdp-tracklist">
+                     <div class="cdp-tracklist-loading">Loading tracks…</div>
+                  </div>
+
+                  <div class="cdp-footer">
+
+                  <div class="cdp-footer-left">
+
+                  <div class="cdp-footer-bars">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  </div>
+
+                  </div>
+
+                  <div class="cdp-footer-right">
+
+                  <span class="cdp-powered">Developed using
+
+                  <img
+                  src="https://cdn.prod.website-files.com/62a0a0168756b795debc65bc/68632537191e7a5a13a365c5_03-tertiary-stacked-white-transparent.png"
+                  alt="SoundCloud"
+                  class="cdp-soundcloud-logo"></span>
+
+                  </div>
+
+                  </div>
+               </div><!-- /cdplayer -->
+            </div>
+         </section>
+
+<!-- ░░ 4. ARTWORK STRIP 1 ░░ -->
+         <div class="artwork-strip" aria-hidden="true">
+            <div class="artwork-strip__inner" id="artwork-strip-1"></div>
+         </div>
+
+<!-- ░░ 5. CREDITS ░░ -->
+
+         <section id="credits" class="section-pad">
+
+         <div class="container">
+
+         <div class="credits-panel">
+
+         <h2 class="section-title">Selected Credits</h2>
+
+         <div class="legend">
+         <span><b class="tag PR" data-role="Producer">PR</b> Producer</span>
+         <span><b class="tag M" data-role="Mixer">M</b> Mixer</span>
+         <span><b class="tag PTE" data-role="Pro Tools Engineer">PTE</b> Pro Tools Eng</span>
+         <span><b class="tag AE" data-role="Assistant Engineer">AE</b> Asst Eng</span><br>
+         <span><b class="tag P" data-role="Performer">P</b> Performer</span>
+         <span><b class="tag OA" data-role="Orchestral Arranger">OA</b> Arranger</span>
+         <span><b class="tag C" data-role="Composer">C</b> Composer</span>
+         <span><b class="tag T" data-role="Transcription">T</b> Transcription</span>
+         </div>
+
+
+         <div class="credits-tabs">
+
+
+         <div class="credits-tab-buttons">
+
+         <button class="credits-tab active" data-tab="selected">
+         Selected Credits
+         </button>
+
+         <button class="credits-tab" data-tab="studio">
+         Studio Production
+         </button>
+
+         <button class="credits-tab" data-tab="live">
+         Live Performance
+         </button>
+
+         </div>
+
+
+
+         <!-- ===================================== -->
+         <!-- TAB 1 : SELECTED CREDITS -->
+         <!-- ===================================== -->
+
+         <div class="credits-tab-content active" id="selected">
+
+         <div class="table-responsive">
+
+         <table class="data-table">
+
+         <thead>
+         <tr>
+         <th>Project</th>
+         <th>Role</th>
+         <th>Label/Studio</th>
+         </tr>
+         </thead>
+
+         <tbody>
+
+         <tr class="row-highlight">
+         <td data-label="Project">Counting Crows - Accidentally In Love - Shrek 2 (OST)</td>
+         <td data-label="Role"><span class="tag P" data-role="Performer">P</span></td>
+         <td data-label="Label/Studio">DreamWorks Records &middot; Feature Film OST<span class="award-badge">⭐ Oscar Nominated</span></td>
+         </tr>
+
+         <tr class="row-highlight">
+         <td data-label="Project">Seal - Walk On By</td>
+         <td data-label="Role"><span class="tag OA" data-role="Orchestral Arranger">OA</span></td>
+         <td data-label="Label/Studio">Warner Bros Records &middot; Single <span class="award-badge">⭐ GRAMMY Nominated</span></td>
+         </tr>
+
+         <tr>
+         <td data-label="Project">Hans Zimmer - King Arthur - Moya Brennan</td>
+         <td data-label="Role"><span class="tag AE" data-role="Assistant Engineer">AE</span></td>
+         <td data-label="Label/Studio">DreamWorks &middot; Feature Film OST</td>
+         </tr>
+
+         <tr>
+         <td data-label="Project">Elton John - Mona Lisa Smile</td>
+         <td data-label="Role"><span class="tag PTE" data-role="Pro Tools Engineer">PTE</span> <span class="tag AE" data-role="Assistant Engineer">AE</span></td>
+         <td data-label="Label/Studio">Sony Pictures &middot; Feature Film OST</td>
+         </tr>
+
+         <tr>
+         <td data-label="Project">Coyote Ugly (Directors Cut)</td>
+         <td data-label="Role"><span class="tag PTE" data-role="Pro Tools Engineer">PTE</span> <span class="tag AE" data-role="Assistant Engineer">AE</span></td>
+         <td data-label="Label/Studio">Jerry Bruckheimer Films &middot; Feature Film OST</td>
+         </tr>
+
+         <tr>
+         <td data-label="Project">Sugababes - Overload (2004), Bridget Jones: The Edge Of Reason (OST)</td>
+         <td data-label="Role"><span class="tag PTE" data-role="Pro Tools Engineer">PTE</span> <span class="tag AE" data-role="Assistant Engineer">AE</span></td>
+         <td data-label="Label/Studio">Working Title Films</td>
+         </tr>
+
+         </tbody>
+
+         </table>
+
+         </div>
+
+         </div>
+
+
+
+         <!-- ===================================== -->
+         <!-- TAB 2 : STUDIO PRODUCTION -->
+         <!-- ===================================== -->
+
+         <div class="credits-tab-content" id="studio">
+
+         <div class="table-responsive">
+
+         <table class="data-table">
+
+         <thead>
+         <tr>
+         <th>Artist / Project</th>
+         <th>Notes</th>
+         <th>Role</th>
+         </tr>
+         </thead>
+
+         <tbody>
+
+         <tr>
+         <td data-label="Artist / Project">Counting Crows – Shrek 2 (OST)</td>
+         <td data-label="Notes">Accidentally In Love &mdash; Violin</td>
+         <td data-label="Role"><span class="tag P" data-role="Performer">P</span></td>
+         </tr>
+
+         <tr>
+         <td data-label="Artist / Project">Elton John / Macy Gray – Mona Lisa Smile (OST)</td>
+         <td data-label="Notes">In The Heart Of Every Girl / Santa Baby</td>
+         <td data-label="Role"><span class="tag PTE" data-role="Pro Tools Engineer">PTE</span> <span class="tag AE" data-role="Assistant Engineer">AE</span></td>
+         </tr>
+
+         <tr>
+         <td data-label="Artist / Project">Coyote Ugly (Directors Cut) (OST)</td>
+         <td data-label="Notes">&mdash;</td>
+         <td data-label="Role"><span class="tag PTE" data-role="Pro Tools Engineer">PTE</span> <span class="tag AE" data-role="Assistant Engineer">AE</span></td>
+         </tr>
+
+         <tr>
+         <td data-label="Artist / Project">Hans Zimmer – King Arthur (OST)</td>
+         <td data-label="Notes">End Credits Song feat. Moya Brennan</td>
+         <td data-label="Role"><span class="tag AE" data-role="Assistant Engineer">AE</span></td>
+         </tr>
+
+         <tr>
+         <td data-label="Artist / Project">Seal – Seal IV (Album)</td>
+         <td data-label="Notes">Various</td>
+         <td data-label="Role"><span class="tag P" data-role="Performer">P</span> <span class="tag OA" data-role="Orchestral Arranger">OA</span> <span class="tag AE" data-role="Assistant Engineer">AE</span></td>
+         </tr>
+
+         <tr>
+         <td data-label="Artist / Project">Seal – Walk On By (Single)</td>
+         <td data-label="Notes">GRAMMY Nominated</td>
+         <td data-label="Role"><span class="tag OA" data-role="Orchestral Arranger">OA</span></td>
+         </tr>
+
+         <tr class="reveal-row">
+         <td data-label="Artist / Project">Robbie Williams / Kylie Minogue – The Magic Roundabout (OST)</td>
+         <td data-label="Notes">Various</td>
+         <td data-label="Role"><span class="tag PTE" data-role="Pro Tools Engineer">PTE</span> <span class="tag AE" data-role="Assistant Engineer">AE</span></td>
+         </tr>
+
+         <tr class="reveal-row">
+         <td data-label="Artist / Project">SugaBabes – Bridget Jones Diary (OST)</td>
+         <td data-label="Notes">Freak Like Me</td>
+         <td data-label="Role"><span class="tag PTE" data-role="Pro Tools Engineer">PTE</span> <span class="tag AE" data-role="Assistant Engineer">AE</span></td>
+         </tr>
+
+         <tr class="reveal-row">
+         <td data-label="Artist / Project">Olympics 2004 – The Olympic Torch Theme (Single)</td>
+         <td data-label="Notes">Pass The Flame</td>
+         <td data-label="Role"><span class="tag P" data-role="Performer">P</span> <span class="tag OA" data-role="Orchestral Arranger">OA</span> <span class="tag PTE" data-role="Pro Tools Engineer">PTE</span></td>
+         </tr>
+
+         <tr class="reveal-row">
+         <td data-label="Artist / Project">Enrique Iglesias feat. Kelis – Not In Love (Single)</td>
+         <td data-label="Notes">Not In Love</td>
+         <td data-label="Role"><span class="tag AE" data-role="Assistant Engineer">AE</span></td>
+         </tr>
+
+         <tr class="reveal-row">
+         <td data-label="Artist / Project">Beth Orton – Daybreaker (EP)</td>
+         <td data-label="Notes">Concrete Sky</td>
+         <td data-label="Role"><span class="tag AE" data-role="Assistant Engineer">AE</span></td>
+         </tr>
+
+         <tr class="reveal-row">
+         <td data-label="Artist / Project">Lisa Stansfield – The Moment (Album)</td>
+         <td data-label="Notes">Various</td>
+         <td data-label="Role"><span class="tag P" data-role="Performer">P</span> <span class="tag OA" data-role="Orchestral Arranger">OA</span> <span class="tag PTE" data-role="Pro Tools Engineer">PTE</span> <span class="tag AE" data-role="Assistant Engineer">AE</span></td>
+         </tr>
+
+         <tr class="reveal-row">
+         <td data-label="Artist / Project">Chris Demetriou / Cavendish Music – Celtic Music (Library)</td>
+         <td data-label="Notes">Amazon Prime: The London Underground Killer</td>
+         <td data-label="Role"><span class="tag PR" data-role="Producer">PR</span></td>
+         </tr>
+
+         <tr class="reveal-row">
+         <td data-label="Artist / Project">Raintown Seers – Love, Lost, Home (Album)</td>
+         <td data-label="Notes">&mdash;</td>
+         <td data-label="Role"><span class="tag PR" data-role="Producer">PR</span> <span class="tag M" data-role="Mixer">M</span> <span class="tag PTE" data-role="Pro Tools Engineer">PTE</span> <span class="tag OA" data-role="Orchestral Arranger">OA</span> <span class="tag P" data-role="Performer">P</span></td>
+         </tr>
+
+         <tr class="reveal-row">
+         <td data-label="Artist / Project">Raintown Seers – Start A Fire (Album)</td>
+         <td data-label="Notes">&mdash;</td>
+         <td data-label="Role"><span class="tag PR" data-role="Producer">PR</span> <span class="tag M" data-role="Mixer">M</span> <span class="tag PTE" data-role="Pro Tools Engineer">PTE</span> <span class="tag OA" data-role="Orchestral Arranger">OA</span> <span class="tag P" data-role="Performer">P</span></td>
+         </tr>
+
+         <tr class="reveal-row">
+         <td data-label="Artist / Project">Track Dogs – Where To Now? (Album)</td>
+         <td data-label="Notes">Various</td>
+         <td data-label="Role"><span class="tag P" data-role="Performer">P</span> <span class="tag OA" data-role="Orchestral Arranger">OA</span></td>
+         </tr>
+
+         <tr class="reveal-row">
+         <td data-label="Artist / Project">Panza – Infanticidio (Single)</td>
+         <td data-label="Notes">Sado</td>
+         <td data-label="Role"><span class="tag P" data-role="Performer">P</span> <span class="tag OA" data-role="Orchestral Arranger">OA</span></td>
+         </tr>
+
+         <tr class="reveal-row">
+         <td data-label="Artist / Project">Endless Shame – Generation Blind (Single)</td>
+         <td data-label="Notes">Erase The Beautiful</td>
+         <td data-label="Role"><span class="tag P" data-role="Performer">P</span> <span class="tag OA" data-role="Orchestral Arranger">OA</span></td>
+         </tr>
+
+         <tr class="reveal-row">
+         <td data-label="Artist / Project">Jessicas Ghost – Losing Track of Time (Album)</td>
+         <td data-label="Notes">Various</td>
+         <td data-label="Role"><span class="tag P" data-role="Performer">P</span> <span class="tag OA" data-role="Orchestral Arranger">OA</span> <span class="tag PTE" data-role="Pro Tools Engineer">PTE</span></td>
+         </tr>
+
+         <tr class="reveal-row">
+         <td data-label="Artist / Project">Backwoods Creek – It's About Time (EP)</td>
+         <td data-label="Notes">Various</td>
+         <td data-label="Role"><span class="tag P" data-role="Performer">P</span> <span class="tag OA" data-role="Orchestral Arranger">OA</span></td>
+         </tr>
+
+         <tr class="reveal-row">
+         <td data-label="Artist / Project">Steve Young – The Great North Road (EP)</td>
+         <td data-label="Notes">Trembling Heart</td>
+         <td data-label="Role"><span class="tag P" data-role="Performer">P</span></td>
+         </tr>
+
+         <tr class="reveal-row">
+         <td data-label="Artist / Project">Donna Marie Songs – Shelter (Single)</td>
+         <td data-label="Notes">Shelter</td>
+         <td data-label="Role"><span class="tag P" data-role="Performer">P</span> <span class="tag OA" data-role="Orchestral Arranger">OA</span></td>
+         </tr>
+
+         <tr class="reveal-row">
+         <td data-label="Artist / Project">Máiréad, Johnny Brady – If You Loved Me Once (Single)</td>
+         <td data-label="Notes">&mdash;</td>
+         <td data-label="Role"><span class="tag P" data-role="Performer">P</span> <span class="tag OA" data-role="Orchestral Arranger">OA</span></td>
+         </tr>
+
+         <tr class="reveal-row">
+         <td data-label="Artist / Project">Linen Ray – On The Mend (Single)</td>
+         <td data-label="Notes">Apple Of My Eye</td>
+         <td data-label="Role"><span class="tag P" data-role="Performer">P</span> <span class="tag OA" data-role="Orchestral Arranger">OA</span></td>
+         </tr>
+
+         <tr class="reveal-row">
+         <td data-label="Artist / Project">Lazlo Baby – Together For Ukraine (Single)</td>
+         <td data-label="Notes">Shche Sto Hram</td>
+         <td data-label="Role"><span class="tag M" data-role="Mixer">M</span></td>
+         </tr>
+
+         <tr class="reveal-row">
+         <td data-label="Artist / Project">Rachel Adedeji (X Factor) / Phil Ramacon – X Factor</td>
+         <td data-label="Notes">String Session</td>
+         <td data-label="Role"><span class="tag P" data-role="Performer">P</span></td>
+         </tr>
+
+         </tbody>
+
+         </table>
+
+         </div>
+
+         </div>
+
+
+
+         <!-- ===================================== -->
+         <!-- TAB 3 : LIVE PERFORMANCE -->
+         <!-- ===================================== -->
+
+         <div class="credits-tab-content" id="live">
+
+         <div class="table-responsive">
+
+         <table class="data-table">
+
+         <thead>
+         <tr>
+         <th>Artist / Project</th>
+         <th>Notes</th>
+         <th>Role</th>
+         </tr>
+         </thead>
+
+         <tbody>
+
+         <!-- Group: Tour Support -->
+         <tr class="group-header">
+         <td colspan="3">Tour Support</td>
+         </tr>
+
+         <tr>
+         <td data-label="Artist / Project">Sharon Corr</td>
+         <td data-label="Notes">O2 Academy</td>
+         <td data-label="Location">Liverpool, UK</td>
+         </tr>
+
+         <tr>
+         <td data-label="Artist / Project">Jenn Bostic</td>
+         <td data-label="Notes">Band On The Wall</td>
+         <td data-label="Location">Manchester, UK</td>
+         </tr>
+
+
+         <!-- Group: Corporate -->
+         <tr class="group-header">
+         <td colspan="3">Corporate</td>
+         </tr>
+
+         <tr>
+         <td data-label="Artist / Project">Paloma Faith</td>
+         <td data-label="Notes">TalkTalk Corporate</td>
+         <td data-label="Location">UK</td>
+         </tr>
+
+         <tr>
+         <td data-label="Artist / Project">Pixie Lott</td>
+         <td data-label="Notes">TalkTalk Corporate</td>
+         <td data-label="Location">UK</td>
+         </tr>
+
+         <tr>
+         <td data-label="Artist / Project">Tinchy Stryder</td>
+         <td data-label="Notes">TalkTalk Corporate</td>
+         <td data-label="Location">UK</td>
+         </tr>
+
+         <tr>
+         <td data-label="Artist / Project">Noisettes</td>
+         <td data-label="Notes">TalkTalk Corporate</td>
+         <td data-label="Location">UK</td>
+         </tr>
+
+         <tr>
+         <td data-label="Artist / Project">Guillemots</td>
+         <td data-label="Notes">TalkTalk Corporate</td>
+         <td data-label="Location">UK</td>
+         </tr>
+
+
+         <!-- Group: Festival -->
+         <tr class="group-header">
+         <td colspan="3">Festival</td>
+         </tr>
+
+         <tr>
+         <td data-label="Artist / Project">Track Dogs</td>
+         <td data-label="Notes">Shrewsbury Folk Festival</td>
+         <td data-label="Location">Shrewsbury, UK</td>
+         </tr>
+
+
+         <!-- Group: Venue Shows -->
+         <tr class="group-header">
+         <td colspan="3">Venue Shows</td>
+         </tr>
+
+         <tr>
+         <td data-label="Artist / Project">Bastille</td>
+         <td data-label="Notes">Mojo Bar</td>
+         <td data-label="Location">Liverpool, UK</td>
+         </tr>
+
+         <tr>
+         <td data-label="Artist / Project">James Walsh (Starsailor)</td>
+         <td data-label="Notes">Zanzibar</td>
+         <td data-label="Location">Liverpool, UK</td>
+         </tr>
+
+         <tr>
+         <td data-label="Artist / Project">Marcella Detroit (Shakespears Sister)</td>
+         <td data-label="Notes">The Stables</td>
+         <td data-label="Location">Milton Keynes, UK</td>
+         </tr>
+
+         <tr>
+         <td data-label="Artist / Project">John Smith</td>
+         <td data-label="Notes">Epstein Theatre</td>
+         <td data-label="Location">Liverpool, UK</td>
+         </tr>
+
+         <tr>
+         <td data-label="Artist / Project">Rachel Sage</td>
+         <td data-label="Notes">Jabez Clegg</td>
+         <td data-label="Location">Manchester, UK</td>
+         </tr>
+
+         <tr>
+         <td data-label="Artist / Project">Moulettes</td>
+         <td data-label="Notes">Various</td>
+         <td data-label="Location">York, UK</td>
+         </tr>
+
+         </tbody>
+
+         </table>
+
+         </div>
+
+         </div>
+
+
+
+         </div>
+
+         </div>
+
+         </div>
+
+         </section>
+
+<!-- ░░ 6. ARTWORK STRIP 2 ░░ -->
+         <div class="artwork-strip" aria-hidden="true">
+            <div class="artwork-strip__inner" id="artwork-strip-2"></div>
+         </div>
+
+<!-- ░░ 7. CAREER / INDUSTRY ACTIVITY ░░ -->
+         <section id="career" class="section-pad bg-darker">
+            <div class="container">
+              <h2 class="section-title">
+              Current Work<br>&amp; Industry Activity
+              </h2>
+              <p class="section-intro">
+              Recent work, training and industry engagement in radio, podcast and audio production.
+              </p>
+               <div class="table-responsive">
+                  <table class="data-table career-table">
+                     <thead>
+                     <tr>
+                     <th data-label="Status">Status</th>
+                     <th data-label="Organisation">Organisation / Project</th>
+                     <th data-label="Activity">Role / Activity</th>
+                     </tr>
+                     </thead>
+                     <tbody>
+
+                     <tr>
+                     <td class="status-cell">
+                     <span class="tag cat-volunteer">Volunteer</span>
+                     <span class="tag status-active">Active</span>
+                     </td>
+                     <td>
+                     <a href="https://gaydio.co.uk" target="_blank" rel="noopener" class="table-link">
+                     Gaydio
+                     </a>
+                     </td>
+                     <td>Video and audio podcast editing and mixing</td>
+                     </tr>
+
+                     <tr>
+                     <td class="status-cell">
+                     <span class="tag cat-volunteer">Volunteer</span>
+                     <span class="tag status-active">Active</span>
+                     </td>
+                     <td>
+                     <a href="https://gaydio.co.uk" target="_blank" rel="noopener" class="table-link">
+                     Gaydio Breakfast with Dave Cooper
+                     </a>
+                     </td>
+                     <td>Assistant Producer · Editing interviews &amp; guest content, podcast production and broadcast imaging</td>
+                     </tr>
+
+                     <tr>
+                     <td class="status-cell">
+                     <span class="tag cat-volunteer">Volunteer</span>
+                     <span class="tag status-active">Active</span>
+                     </td>
+                     <td>
+                     <a href="https://gaydio.co.uk" target="_blank" rel="noopener" class="table-link">
+                     Gaydio Academy
+                     </a>
+                     </td>
+                     <td>Podcast Production · Editor &amp; Mixer · Delivering Gaydio Academy podcast projects</td>
+                     </tr>
+
+                     <tr>
+                     <td class="status-cell">
+                     <span class="tag cat-volunteer">Volunteer</span>
+                     <span class="tag status-complete">Complete</span>
+                     </td>
+                     <td>Elim</td>
+                     <td>Record, edit, mix, master, produce Christian music for Easter project</td>
+                     </tr>
+
+                     <tr>
+                     <td class="status-cell">
+                     <span class="tag cat-volunteer">Volunteer</span>
+                     <span class="tag status-complete">Complete</span>
+                     </td>
+                     <td>
+                     <a href="https://www.bauermedia.co.uk/" target="_blank" rel="noopener" class="table-link">
+                     Bauer Media Group: News Read Demo
+                     </a>
+                     </td>
+                     <td>Edit, Clean, Mix news read demos for friend's application</td>
+                     </tr>
+
+                     <tr>
+                     <td class="status-cell">
+                     <span class="tag cat-volunteer">Volunteer</span>
+                     <span class="tag status-complete">Complete</span>
+                     </td>
+                     <td>"That'll Be The Tism"</td>
+                     <td>Audio Imaging Producer · Intro, stings, beds and sonic branding</td>
+                     </tr>
+
+                     <tr>
+                     <td class="status-cell">
+                     <span class="tag cat-application">Application</span>
+                     <span class="tag status-pending">Pending</span>
+                     </td>
+                     <td>
+                     <a href="https://www.bbc.co.uk/bbcaudio" target="_blank" rel="noopener" class="table-link">
+                     BBC Audio North
+                     </a>
+                     </td>
+                     <td>Assistant Producer</td>
+                     </tr>
+
+                     <tr>
+                     <td class="status-cell">
+                     <span class="tag cat-application">Application</span>
+                     <span class="tag status-complete">Complete</span>
+                     </td>
+                     <td>
+                     <a href="https://www.bbc.co.uk/careers" target="_blank" rel="noopener" class="table-link">
+                     BBC Radio Manchester
+                     </a>
+                     </td>
+                     <td>Production Apprentice Application · Reached final stage from thousands of applicants</td>
+                     </tr>
+
+                     <tr>
+                     <td class="status-cell">
+                     <span class="tag cat-training">Training</span>
+                     <span class="tag status-active">Active</span>
+                     </td>
+                     <td>
+                     <a href="https://344audio.com" target="_blank" rel="noopener" class="table-link">
+                     344 Academy
+                     </a>
+                     </td>
+                     <td>Audio Post Production &amp; Sound Design Training · Dialogue Editing, ADR, Foley, SFX and Atmos Mixing</td>
+                     </tr>
+
+                     <tr>
+                     <td class="status-cell">
+                     <span class="tag cat-portfolio">Portfolio</span>
+                     <span class="tag status-active">Active</span>
+                     </td>
+                     <td>CDAUDIO</td>
+                     <td>Radio imaging, original spots and podcast trailers</td>
+                     </tr>
+
+                     <tr>
+                     <td class="status-cell">
+                     <span class="tag cat-event">Event</span>
+                     <span id="radio-academy-status" class="tag status-complete">Attended</span>
+                     </td>
+                     <td>
+                     <a href="https://radioacademy.org" target="_blank" rel="noopener" class="table-link">
+                     Audio Academy
+                     </a>
+                     </td>
+                     <td>Foot In The Door Industry Networking Event · University of Essex</td>
+                     </tr>
+
+                     <tr>
+                     <td class="status-cell">
+                     <span class="tag cat-event">Event</span>
+                     <span class="tag status-complete">Attended</span>
+                     </td>
+                     <td>
+                     <a href="https://www.bbc.co.uk/bbcaudio" target="_blank" rel="noopener" class="table-link">
+                     BBC Audio North
+                     </a>
+                     </td>
+                     <td>Freelancer Talent Pool Networking Event</td>
+                     </tr>
+
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </section>
 
 </main>
 

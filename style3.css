@@ -7731,3 +7731,62 @@ width:100%;
   transition: color 0.2s ease;
 }
 .contact-links a:hover { color: var(--accent); }
+
+/* ============================================================
+   WORK.HTML — hero--simple + inline reel TV
+   ============================================================ */
+
+/* Simple typographic hero (no background image) */
+.hero--simple {
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: calc(88px + 4rem) 0 4rem;
+  background: transparent;
+}
+.hero--simple .hero-content {
+  max-width: 700px;
+  padding: 0 28px;
+}
+.hero--simple h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 900;
+  color: var(--text-white);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.hero-sub {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 2rem;
+}
+
+/* Inline reel TV (not a modal) */
+.reel-section { text-align: center; }
+.reel-section-sub {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.45);
+  margin-top: -0.5rem;
+  margin-bottom: 2.5rem;
+}
+.reel-tv-wrap {
+  display: inline-block;
+  max-width: 780px;
+  width: 100%;
+}
+/* Override modal positioning for inline context */
+.reel-tv-wrap .reel-tv {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  margin: 0 auto;
+}
+.container--narrow { max-width: 860px; }
