@@ -7836,3 +7836,28 @@ width:100%;
   border: 1px solid rgba(255,255,255,0.1);
   letter-spacing: 0.05em;
 }
+
+/* ── Final Check — above-the-fold layout at 1280px desktop ─── */
+
+/* Cap hero at 55vh so the showreel player is visible below it  */
+.hero {
+  min-height: 320px;
+  max-height: 55vh;
+  margin-bottom: 0;
+  padding-bottom: var(--space-md);
+}
+
+/* Reduce top gap on the showreel section */
+#soundcloud-section {
+  padding-top: var(--space-sm);
+}
+
+/* Credibility names strip — visible in hero */
+.hero-credentials {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-top: var(--space-sm);
+}
