@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Chris Demetriou — Audio Producer</title>
+
+<meta name="description" content="About Chris Demetriou — audio producer based in Manchester, specialising in spoken word, podcast production, dialogue editing and sound design.">
+
+<meta name="keywords" content="about Chris Demetriou, audio producer Manchester, podcast producer, radio production, spoken word audio">
+
+<meta property="og:title" content="About | Chris Demetriou — Audio Producer">
+<meta property="og:description" content="About Chris Demetriou — audio producer based in Manchester, specialising in spoken word, podcast production, dialogue editing and sound design.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://chrisdemetriou.com/images/sharoncorr.jpg">
+<meta property="og:url" content="https://chrisdemetriou.com/about.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style3.css?v=78">
+</head>
+<body>
+
+<button class="menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+  <span></span><span></span><span></span>
+</button>
+
+<nav class="nav-overlay" id="nav-links">
+
+              <a href="#soundcloud-section" class="nav-item">Audio Showreel</a>
+              <a href="#credits" class="nav-item">Selected Credits</a>
+              <a href="#toolkit-section" class="nav-item">Production Toolkit & Libraries</a>
+              <a href="#why-audio-section" class="nav-item">Why Audio</a>
+              <a href="#career" class="nav-item">Current Work & Industry Activity</a>
+              <a href="#feedback-section" class="nav-item">Industry Feedback</a>
+              <a href="#about" class="nav-item">The Sonic Foundation</a>
+              <a href="#toolkit" class="nav-item">The Journey</a>
+              <a href="#spotify-section" class="nav-item">Selected Music Work</a>
+              <a href="#roles" class="nav-item">Production Focus</a>
+              <a href="#contact" class="nav-item">Get In Touch</a>
+
+</nav>
+
+<!-- Floating Showreel Tab -->
+<button class="reel-float-btn" id="reel-float-btn" aria-label="Watch the Showreel">
+  <span class="reel-float-icon">▶</span>
+  <span class="reel-float-label">Watch The Reel</span>
+</button>
+
+<!-- Showreel TV Modal -->
+<div class="reel-modal-overlay" id="reel-modal" role="dialog" aria-modal="true" aria-label="Showreel" aria-hidden="true">
+  <div class="reel-tv">
+    <div class="reel-tv-header">
+      <span class="reel-tv-brand">ChrisD — Showreel 2026</span>
+    </div>
+    <button class="reel-tv-close" id="reel-modal-close" aria-label="Close">✕</button>
+    <div class="reel-tv-bezel">
+      <div class="reel-tv-screen">
+        <video id="reel-video" src="video/chrisdemetriou_musicREEL_FINAL2026.mp4" controls playsinline preload="none" controlsList="nodownload"></video>
+        <button class="reel-play-btn" id="reel-play-btn" aria-label="Play video">
+          <div class="reel-play-content">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <span class="reel-play-text">WATCH CHRIS'S SHOWREEL</span>
+          </div>
+        </button>
+      </div>
+    </div>
+    <div class="reel-tv-footer">
+      <div class="reel-tv-grille">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="reel-tv-knobs">
+        <div class="reel-tv-knob"></div>
+        <div class="reel-tv-knob"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="nav-brand" id="nav-brand">
+
+<a href="#" class="hero-logo">
+<span class="cdaudio-wordmark-text">CHRIS<span class="logo-d">D</span></span>
+<span class="logo-mark" aria-hidden="true">
+<span class="bar"></span>
+<span class="bar"></span>
+<span class="bar"></span>
+<span class="bar"></span>
+<span class="bar"></span>
+<span class="bar"></span>
+<span class="bar"></span>
+</span>
+</a>
+
+<span class="nav-tagline">
+  <span class="tagline-phrase active">Heard everywhere</span>
+  <span class="tagline-phrase">Made here</span>
+</span>
+
+</div>
+
+<div class="scroll-bar" id="scroll-bar"></div>
+
+<main>
+
+  <!-- Page content goes here -->
+
+</main>
+
+<!-- =============================== -->
+<!-- Bottom Player -->
+<!-- =============================== -->
+
+<div class="bottom-player" id="bottom-player">
+
+  <div class="ap-loading">
+    <div class="ap-loading-bar"></div>
+  </div>
+
+  <div class="bottom-player-inner">
+
+    <!-- Artwork -->
+    <div class="ap-col ap-col-artwork">
+      <div class="ap-artwork">
+        <img id="ap-artwork-img" src="" alt="Artwork">
+      </div>
+    </div>
+
+    <!-- Track -->
+    <div class="ap-col ap-col-track">
+      <div class="ap-track-meta">
+        <div class="ap-track-title">Loading...</div>
+        <div class="ap-track-sub">Artist / Project</div>
+        <div class="ap-track-extra">Album or descriptor</div>
+      </div>
+    </div>
+
+    <!-- Waveform -->
+   <div class="ap-col ap-col-waveform">
+  <div class="ap-waveform-wrap">
+    <canvas id="ap-waveform"></canvas>
+    <div class="ap-time-overlay">0:00 / 0:00</div>
+  </div>
+</div>
+
+    <!-- Controls -->
+    <div class="ap-col ap-col-controls">
+      <button class="ap-btn" id="ap-prev-btn">⏮</button>
+
+      <button class="ap-btn ap-play-btn" id="ap-play-btn">
+        <span class="ap-icon-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="ap-icon-pause" style="display:none;"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg></span>
+      </button>
+
+      <button class="ap-btn" id="ap-next-btn">⏭</button>
+
+      <input type="range" id="ap-volume" min="0" max="100" step="1" value="100">
+    </div>
+
+    <!-- Brand -->
+    <a href="#cdplayer" class="ap-player-link">
+    <div class="ap-col ap-col-brand">
+      <div class="ap-brand">
+        <div class="ap-brand-row">
+          <span class="cdaudio-wordmark-text">
+            CHRIS<span class="logo-d">D</span>
+          </span>
+          <span class="logo-mark">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </span>
+        </div>
+        <span class="ap-player-tagline">PLAYER</span>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script src="script.js?v=75" defer></script>
+<script src="https://w.soundcloud.com/player/api.js"></script>
+<script>
+(function() {
+  const phrases = document.querySelectorAll('.tagline-phrase');
+  if (!phrases.length) return;
+  phrases.forEach(phrase => {
+    const chars = [...phrase.textContent.trim().toUpperCase()];
+    phrase.innerHTML = chars.map(c =>
+      c === ' ' ? '<span class="tg-sp"></span>' : `<span>${c}</span>`
+    ).join('');
+  });
+  let current = 0;
+  setInterval(() => {
+    phrases[current].classList.remove('active');
+    current = (current + 1) % phrases.length;
+    phrases[current].classList.add('active');
+  }, 3200);
+})();
+</script>
+</body>
+</html>
